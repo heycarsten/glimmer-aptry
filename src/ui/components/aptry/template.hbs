@@ -1,2 +1,28 @@
-<div class="apitry">
+<div class="aptry">
+  <div class="control-bar">
+    <div class="endpoint-selector open">
+      <div class="endpoint-selector-label">
+        Selected Endpoint
+      </div>
+      {{! if isOpen }}
+        <ol class="endpoint-selector-list">
+          <li class="selected">
+            Wow Selected
+          </li>
+          <li>
+            Not Selected
+          </li>
+        </ol>
+      {{! /if }}
+    </div>
+    <form class="endpoint-path-input">
+      <span class="readonly">lcboapi.com/</span>
+      <input type="text">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  {{! var html = Prism.highlight(this.props.json, Prism.languages.json); }}
+  <div class="console">
+    <pre><code>{{~ @output ~}}</code></pre>
+  </div>
 </div>
