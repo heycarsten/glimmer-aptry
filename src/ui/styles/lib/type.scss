@@ -1,0 +1,24 @@
+$roboto: 'Roboto', 'Helvetica Neue', 'Open Sans', sans-serif;
+$roboto-condensed: 'Roboto Condensed', 'Roboto', 'Helvetica Neue', 'Open Sanse', sans-serif;
+$source-code-pro: 'Source Code Pro', 'Consolas', 'Menlo', monospace;
+
+@mixin font-smoothing($value) {
+  @if ($value == antialiased) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else if ($value == none) {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+  } @else if ($value == subpixel-antialiased) {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin font-awesome {
+  font-family: FontAwesome;
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  font-weight: 100;
+  @include font-smoothing(antialiased);
+}

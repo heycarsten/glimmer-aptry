@@ -1,0 +1,39 @@
+html, body {
+  font-family: $roboto;
+  margin: 0;
+  padding: 0;
+  color: material-color('blue-grey', '800');
+}
+
+a {
+  color: material-color('blue-grey', '900');
+  &:active {
+    color: material-color('purple', 'a400');
+  }
+}
+
+p {
+  line-height: 1.5;
+  margin: 0 0 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: material-color('blue-grey', '900');
+  font-weight: 900;
+  margin: 1.5em 0;
+  @include font-smoothing(antialiased);
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 900;
+  margin: 1.5em 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h2 {
+  font-size: 1.25em;
+}

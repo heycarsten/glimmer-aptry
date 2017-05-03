@@ -1,0 +1,90 @@
+code {
+  position: relative;
+  font-family: $source-code-pro;
+  background: material-color('blue-grey', '50');
+  border-radius: 3px;
+  padding: 2px 6px;
+  padding-top: 1px;
+}
+
+pre {
+  word-wrap: break-word;
+}
+
+pre code {
+  position: static;
+  background: material-color('green-grey', '900');
+  font-size: 0.75em;
+  font-weight: 400;
+  color: material-color('green-grey', '100');
+  display: block;
+  padding: 4px 6px;
+  border-radius: 3px;
+
+  .nx {
+    color: material-color('blue-grey', '100');
+  }
+
+  .p {
+    color: material-color('blue-grey', '200');
+  }
+
+  .keyword, .kd {
+    color: white;
+    font-weight: 800;
+  }
+
+  .k {
+    color: material-color('pink', '500');
+    font-weight: 800;
+  }
+
+  .tag, .nt {
+    color: material-color('blue', '400');
+  }
+
+  .doctype, .cp {
+    color: material-color('blue', '600');
+    background: rgba(material-color('blue', '800'), 0.15);
+  }
+
+  .comment, .c1 {
+    color: material-color('green-grey', '600');
+  }
+
+  .property, .na {
+    color: material-color('pink', '400');
+    .quote {
+      color: darken(material-color('pink', '200'), 5%);
+    }
+    .colon {
+      color: material-color('green-grey', '100');
+    }
+  }
+
+  .nb {
+    color: material-color('cyan', '300');
+  }
+
+  .string, .s2, .s1, .s {
+    color: material-color('purple', '300');
+  }
+
+  .boolean {
+    color: material-color('cyan', 'a400');
+    background: rgba(material-color('cyan', 'a200'), 0.05);
+  }
+
+  .null, .kc {
+    color: material-color('light-green', '300');
+    background: rgba(material-color('green', 'a400'), 0.05);
+  }
+
+  .operator, .o {
+    color: material-color('yellow', '700');
+  }
+
+  .number, .mi, .mf {
+    color: material-color('blue', '400');
+  }
+}
