@@ -11,7 +11,7 @@ export default class APTry extends Component {
   @tracked isFetching        = true;
   @tracked selectedEndpoint  = null;
   @tracked currentPath       = null;
-  @tracked formattedResponse = '';
+  @tracked responseJSON      = null;
 
   didInsertElement() {
     this.selectEndpoint(ENDPOINTS[0]);
@@ -33,7 +33,6 @@ export default class APTry extends Component {
 
   pathChanged(event) {
     this.currentPath = event.target.value;
-    console.log(this.currentPath);
   }
 
   keyPressed(event) {
@@ -44,23 +43,25 @@ export default class APTry extends Component {
     this.updateConsole();
   }
 
+  @tracked('responseJSON') get formattedResponse() {
+    let json = JSON.stringify(this.responseJSON, null, 2);
+    return Prism.highlight(json, JSON_GRAMMAR);
+  }
+
   updateConsole() {
     this.isFetching = true;
 
-    let headers = new Headers({
-      Authorization: `Token token="${API_KEY}"`
-    });
-
     fetch(`https://lcboapi.com/${this.currentPath}`, {
-      headers: headers
+      headers: new Headers({
+        Authorization: `Token token="${API_KEY}"`
+      })
     }).then((res) => {
       res.json().then((data) => {
-        let json = JSON.stringify(data, null, 2);
-        this.formattedResponse = Prism.highlight(json, JSON_GRAMMAR);
+        this.responseJSON = data;
         this.isFetching = false;
       });
     }, (err) => {
-      this.formattedResponse = '<span class="err">[404] Not found 😢</span>';
+      this.responseJSON = { error: '[404] Not found 😢' };
       this.isFetching = false;
     });
   }
