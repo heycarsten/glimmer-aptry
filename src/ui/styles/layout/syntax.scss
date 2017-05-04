@@ -14,7 +14,7 @@ pre {
 pre code {
   position: static;
   background: material-color('green-grey', '900');
-  font-size: 0.75em;
+  font-size: 1em;
   font-weight: 400;
   color: material-color('green-grey', '100');
   display: block;
@@ -86,5 +86,10 @@ pre code {
 
   .number, .mi, .mf {
     color: material-color('blue', '400');
+  }
+
+  .err {
+    color: material-color('red', 'a400');
+    background: rgba(material-color('red', 'a400'), 0.05);
   }
 }

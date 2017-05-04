@@ -1,0 +1,7 @@
+<ol class="endpoint-selector-list">
+  {{#each endpoints key="key" as |endpoint|}}
+    <li class="{{if (eq @selectedEndpoint endpoint) "selected"}}" onclick={{action @onSelect endpoint}}>
+      {{endpoint.label}}
+    </li>
+  {{/each}}
+</ol>

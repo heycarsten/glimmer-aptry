@@ -1,28 +1,26 @@
 <div class="aptry">
   <div class="control-bar">
     <div class="endpoint-selector open">
-      <div class="endpoint-selector-label">
-        Selected Endpoint
+      <div class="endpoint-selector-label" onclick={{action openDropdown}}>
+        {{selectedEndpoint.label}}
       </div>
-      {{! if isOpen }}
-        <ol class="endpoint-selector-list">
-          <li class="selected">
-            Wow Selected
-          </li>
-          <li>
-            Not Selected
-          </li>
-        </ol>
-      {{! /if }}
+      {{#if isOpen}}
+        <endpoints-dropdown
+          @selectedEndpoint={{selectedEndpoint}}
+          @onDismiss={{action closeDropdown}}
+          @onSelect={{action selectEndpoint}} />
+      {{/if}}
     </div>
-    <form class="endpoint-path-input">
+    <div class="endpoint-path-input">
       <span class="readonly">lcboapi.com/</span>
-      <input type="text">
-      <input type="submit" value="Submit">
-    </form>
+      <input type="text" value={{currentPath}} oninput={{action pathChanged}} onkeypress={{action keyPressed}}>
+    </div>
   </div>
-  {{! var html = Prism.highlight(this.props.json, Prism.languages.json); }}
   <div class="console">
-    <pre><code>{{~ @output ~}}</code></pre>
+    {{#if isFetching}}
+      <pre><code>Loading …</code></pre>
+    {{else}}
+      <pre><code>{{{formattedResponse}}}</code></pre>
+    {{/if}}
   </div>
 </div>
